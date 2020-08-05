@@ -3,9 +3,13 @@ from books.models import Book
 from .serializers import BookSerializer
 
 
-class BookAPIView(generics.ListAPIView):
+class BookAPIView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+# class BookAPIView(generics.ListAPIView):
+#     queryset = Book.objects.all()
+#     serializer_class = BookSerializer
 
 
 class BookRetrieveView(generics.RetrieveAPIView):
@@ -35,4 +39,6 @@ class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book
     serializer_class = BookSerializer
     lookup_field = 'id'
+
+
 
